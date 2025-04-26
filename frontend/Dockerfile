@@ -38,6 +38,10 @@ RUN npm cache add @vueuse/core@10.11.0
 RUN npm cache add @vueuse/head@2.0.0
 RUN npm cache add @vueuse/components@10.11.0
 
+RUN npm cache add @fortawesome/fontawesome-svg-core
+RUN npm cache add @fortawesome/free-solid-svg-icons
+RUN npm cache add @fortawesome/vue-fontawesome@latest
+
 RUN npm i
 
 CMD ["npm", "run", "dev"]
