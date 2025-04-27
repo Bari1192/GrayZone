@@ -27,7 +27,7 @@
       <div class="w-full md:flex md:my-auto md:w-auto" :class="{ hidden: !menuOpen }">
         <ul class="flex flex-col md:flex-row md:p-0 md:space-x-6 items-center">
           <li class="nav-item">
-            <RouterLink to="/temu-hacks">
+            <RouterLink to="/temu/temu-tricks">
               <div class="nav-link primary-gradient">
                 <i class="fas fa-tags mr-2"></i>
                 Temu Tricks
@@ -104,7 +104,6 @@
 </template>
 
 <script>
-
 import { RouterLink } from 'vue-router'
 import '@styles/HeaderStyle.css'
 

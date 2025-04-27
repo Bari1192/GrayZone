@@ -9,7 +9,7 @@
         <div class="welcome-text-first mt-10 w-full mx-auto flex flex-col items-center relative">
           <!-- Első sor -->
           <div class="text-container relative">
-            <p class="hero-text-top">
+            <p class="Outsmart">
               Outsmart the Market
             </p>
             <div class="glow-line"></div>
@@ -17,7 +17,7 @@
 
           <!-- Második sor -->
           <div class="welcome-text-second mt-4">
-            <p class="hero-text-bottom">
+            <p class="notyourbudget">
               Not Your Budget
             </p>
           </div>
@@ -39,22 +39,6 @@
             </div>
           </div>
         </div>
-        <!-- <section class="hero-section bg-slate-900">
-          <div class="container mx-auto px-4">
-            <div class="flex flex-col items-center">
-              <h1 class="text-4xl md:text-6xl font-bold text-white">
-                TEMU TIPPEK ÉS TRÜKKÖK
-              </h1>
-              <p class="text-slate-500 mt-4">
-                Spórolj okosan a Temu-n
-              </p>
-              <button class="bg-[#ff4f00] hover:bg-[#ff6b2b] text-white px-8 py-3 mt-8 rounded-lg">
-                Fedezd fel a lehetőségeket
-              </button>
-            </div>
-          </div>
-        </section> -->
-
       </div>
     </div>
   </div>
@@ -78,7 +62,7 @@ import BaseHeader from '@components/layout/BaseHeader.vue';
   perspective: 1000px;
 }
 
-.hero-text-top {
+.Outsmart {
   font-family: 'Russo One', sans-serif;
   font-size: 4.5rem;
   color: white;
@@ -91,11 +75,11 @@ import BaseHeader from '@components/layout/BaseHeader.vue';
   transition: transform 0.3s ease;
 }
 
-.hero-text-top:hover {
+.Outsmart:hover {
   transform: rotateX(0deg);
 }
 
-.hero-text-bottom {
+.notyourbudget {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
   margin-top: 2rem;
@@ -178,8 +162,8 @@ border-radius: 2rem;
 
 /* Reszponzív beállítások */
 @media (max-width: 768px) {
-  .hero-text-top { font-size: 3rem; }
-  .hero-text-bottom { font-size: 3.5rem; }
+  .Outsmart { font-size: 3rem; }
+  .notyourbudget { font-size: 3.5rem; }
   .separator { width: 40%; }
 }
 </style>
