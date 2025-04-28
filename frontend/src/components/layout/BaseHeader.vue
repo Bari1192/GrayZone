@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-slate-0 text-slate-100" :class="[
+  <nav class="bg-slate-950 text-slate-100" :class="[
     { 'md:fixed md:top-0 md:left-0 md:right-0 md:z-50 md:shadow-lg': isScrolled },
     { 'relative': !isScrolled }
   ]">
