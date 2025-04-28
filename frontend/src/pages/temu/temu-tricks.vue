@@ -34,25 +34,7 @@
         <!-- Fő szekciók -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid md:grid-cols-3 gap-8">
-                <div v-for="section in mainSections" :key="section.id" class="bg-gray-800/50 backdrop-blur-lg rounded-xl p-6 transform transition-all duration-300 hover:scale-105
-              border border-gray-700 hover:border-pink-500 cursor-pointer"
-                    :class="{ 'border-pink-500': activeTab === section.id }" @click="activeTab = section.id">
-                    <div>
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="p-3 bg-orange-500/70 rounded-xl">
-                                <i :class="section.icon"></i>
-                            </div>
-                            <h3 class="lg:text-xl font-bold">{{ section.title }}</h3>
-                        </div>
-                        <p class="text-gray-400 my-4 md:my-1 font-semibold md:min-h-[80px]">{{ section.description }}
-                        </p>
-                    </div>
-
-                    <!-- Tovább gomb -->
-                    <div class="flex items-center text-pink-500 tracking-wider italic group justify-end font-semibold">
-                        Tovább<i class="fas fa-chevron-right pl-2 group-hover:translate-x-2 transition-transform"></i>
-                    </div>
-                </div>
+               <MainSection/>
             </div>
         </div>
 
@@ -62,13 +44,7 @@
                 <h2 class="text-3xl font-bold mb-8 text-center"><i class="fa-solid fa-fire text-orange-700"></i>
                     Legfrissebb spórolási tippek <i class="fa-solid fa-fire text-orange-700"></i></h2>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div v-for="(tip, index) in quickTips" :key="index"
-                        class="bg-gray-800 rounded-lg p-6 flex items-start gap-4 transform transition-all duration-300 hover:scale-105">
-                        <div class="py-3 px-4 bg-pink-600/50 rounded-xl text-lg ">
-                            <i :class="tip.icon"></i>
-                        </div>
-                        <p class="text-gray-300">{{ tip.text }}</p>
-                    </div>
+                    <QuickTips />
                 </div>
             </div>
         </div>
@@ -92,52 +68,21 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
 import BaseHeader from '@components/layout/BaseHeader.vue';
+import MainSection from './sections/mainSection.vue';
+import QuickTips from './sections/quickTips.vue';
+
+import { ref, computed, onMounted } from 'vue'
 const savings = ref(0)
-const activeTab = ref('discounts')
+
 const heroSection = ref(null)
 
 const formattedSavings = computed(() => {
     return savings.value.toLocaleString()
 })
-// Cardok szekció és a hozzájuk tartozó szövegrészek elemei
-const mainSections = [
-    {
-        id: 'discounts',
-        title: 'Kedvezmények felfedezése',
-        icon: 'fas fa-gift fa-2x',
-        description: 'Ismerd meg az összes elérhető kedvezményt és akciót'
-    },
-    {
-        id: 'credits',
-        title: 'Kredit-visszatérítés',
-        icon: 'fas fa-credit-card fa-2x',
-        description: '16.000 Ft kredit visszatérítés minden héten a vásárlásod után. Hogyan?'
-    },
-    {
-        id: 'cart',
-        title: 'Okos kosár összeállítás',
-        icon: 'fas fa-shopping-cart fa-2x text-orange-100',
-        description: 'Garantált visszatérítés titkai, amiket nem tudtál eddig!'
-    }
-]
 
-// Sprórolási tippek szekció és tartalma
-const quickTips = [
-    {
-        icon: 'fa-solid fa-house',
-        text: 'Lakásberendezés Temu-ból, ezekre figyelj!'
-    },
-    {
-        icon: 'fas fa-credit-card',
-        text: 'Melyik kedvezményt fogadjam el? Többet is lehet?'
-    },
-    {
-        icon: 'fas fa-clock',
-        text: 'Hol találom a kredit-visszatérítést? Ennyire el van rejtve?'
-    }
-]
+
+
 const startSavingsCounter = () => {
     const interval = setInterval(() => {
         if (savings.value < 16000) {
@@ -188,13 +133,6 @@ onMounted(() => {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.transition-all {
-    transition: all 0.3s ease;
-}
-.hover\:scale-105:hover {
-    transform: scale(1.05);
 }
 .backdrop-blur-lg {
     backdrop-filter: blur(16px);

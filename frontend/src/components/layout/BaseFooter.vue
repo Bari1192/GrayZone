@@ -1,0 +1,84 @@
+<template>
+    <footer class="bg-gray-900 border-t-2 border-gray-800 pt-8 sm:pt-12 pb-6 sm:pb-8 mt-20 sm:mt-40 lg:mt-60">
+        <div class="w-full max-w-[90%] lg:max-w-7xl md:max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Fő footer grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 sm:gap-8 mb-8">
+                <!-- Logo és rövid leírás -->
+                <div class="w-full sm:col-span-2 lg:col-span-1">
+                    <img src="../../assets/img/logos/GrayZone_logo.png" alt="GrayZone Life Hacks"
+                        class="w-auto h-16 sm:h-24 object-contain mx-auto">
+                    <p class="text-gray-200 text-sm font-semibold mt-2 text-center">
+                        Smart shopping, maximális élmény
+                    </p>
+                    <p class="text-gray-400 text-sm mt-1 text-center">
+                        Spórolj okosan és maximalizáld ki a kedvezményeket!
+                    </p>
+                </div>
+
+                <!-- Középső linkek szekció -->
+                <div class="w-full sm:col-span-2 lg:col-span-2">
+                    <div class="grid grid-cols-2 gap-4 sm:gap-8">
+                        <!-- Gyors linkek -->
+                        <div class="text-center sm:text-left">
+                            <h3 class="text-white font-semibold mb-4">Tippek & Trükkök</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Temu Tricks</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Carsharing Tips</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Error Fares</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Információk -->
+                        <div class="text-center sm:text-left">
+                            <h3 class="text-white font-semibold mb-4">Információk</h3>
+                            <ul class="space-y-2">
+                                <li class="text-gray-400 hover:text-pink-500 transition-colors">Rólunk</li>
+                                <li class="text-gray-400 hover:text-pink-500 transition-colors">Kapcsolat</li>
+                                <li class="text-gray-400 hover:text-pink-500 transition-colors">Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hírlevél feliratkozás -->
+                <div class="w-full sm:col-span-2 lg:col-span-1">
+                    <p class="text-white font-semibold mb-4 text-center sm:text-left">Íratkozz fel, hogy elsőként értesülj!</p>
+                    <div class="flex max-w-xs mx-auto sm:mx-0">
+                        <input type="email" placeholder="Email címed"
+                            class="bg-gray-800 text-gray-300 px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-pink-500 flex-grow w-full">
+                        <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-r-lg transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-3 px-2 text-center sm:text-left">
+                        Ne aggódj, nem küldünk spamet! Csak a legjobb tippeket és trükköket!
+                        Feliratkozással hozzájárulsz az <u class="underline-offset-2 italic">adatkezelési tájékoztatóban</u> foglaltakhoz.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Copyright és social ikonok -->
+            <div class="border-t border-gray-800 pt-6 sm:pt-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 text-sm text-center sm:text-left">
+                        © 2025 GrayZone Life Hacks. Minden jog fenntartva.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>

@@ -42,10 +42,12 @@
       </div>
     </div>
   </div>
+  <BaseFooter />
 </template>
 
 <script setup>
 import BaseHeader from '@components/layout/BaseHeader.vue';
+import BaseFooter from '@components/layout/BaseFooter.vue';
 </script>
 
 <style>
