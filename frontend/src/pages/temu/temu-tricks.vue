@@ -12,7 +12,7 @@
                     <div class="SporoljOkosan">
                         <p class=" text-2xl md:text-3xl  text-gray-200">
                             Spórolj okosan akár
-                            <span class="font-semibold mx-2 text-purple-800">{{ formattedSavings }} Forintot</span>
+                            <span class="font-semibold lg:mx-2 text-purple-800 text-nowrap">{{ formattedSavings }} Forintot</span>
                             vásárlásonként!
                         </p>
                     </div>
@@ -34,15 +34,19 @@
         <!-- Fő szekciók -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid md:grid-cols-3 gap-8">
-               <MainSection/>
+                <MainSection />
             </div>
         </div>
 
         <!-- Gyors tippek szekció -->
         <div class="bg-gray-800/30 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold mb-8 text-center"><i class="fa-solid fa-fire text-orange-700"></i>
-                    Legfrissebb spórolási tippek <i class="fa-solid fa-fire text-orange-700"></i></h2>
+                <h2 class="text-3xl font-bold mb-8 text-center">
+                    <span class="text-nowrap">
+                        <i class="fa-solid fa-fire text-orange-700"></i>
+                        Legfrissebb
+                        <i class="fa-solid fa-fire text-orange-700"></i>
+                    </span> spórolási tippek </h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <QuickTips />
                 </div>
@@ -50,25 +54,29 @@
         </div>
 
         <!-- Call to Action -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-            <div
-                class="bg-gradient-to-r from-pink-900/50 to-purple-900/50 rounded-2xl p-12 backdrop-blur-lg border border-gray-700">
-                <h2 class="text-4xl font-bold mb-6">Eljött a Te időd!</h2>
-                <p class="text-xl text-gray-300 mb-8">Kövesd tippjeinket és hozd ki a vásárlásodból a legtöbbet!</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full 
+        <router-link to="/temu/temu-coupons">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+                <div
+                    class="bg-gradient-to-r from-pink-900/50 to-purple-900/50 rounded-2xl p-12 backdrop-blur-lg border border-gray-700">
+                    <h2 class="text-4xl font-bold mb-6">Eljött a Te időd!</h2>
+                    <p class="text-xl text-gray-300 mb-8">Kövesd tippjeinket és hozd ki a vásárlásodból a legtöbbet!</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full 
               transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-                        Kedvezmények felfedezése
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+                            Kedvezmények felfedezése
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </router-link>
     </div>
+    <BaseFooter/>
 </template>
 
 <script setup>
 import BaseHeader from '@components/layout/BaseHeader.vue';
+import BaseFooter from '@components/layout/BaseFooter.vue';
 import MainSection from './sections/mainSection.vue';
 import QuickTips from './sections/quickTips.vue';
 
@@ -134,9 +142,11 @@ onMounted(() => {
         transform: translateY(0);
     }
 }
+
 .backdrop-blur-lg {
     backdrop-filter: blur(16px);
 }
+
 .SporoljOkosan {
     font-family: 'Orbitron', sans-serif;
     color: white;

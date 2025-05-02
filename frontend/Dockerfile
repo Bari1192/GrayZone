@@ -42,6 +42,10 @@ RUN npm cache add @fortawesome/fontawesome-svg-core
 RUN npm cache add @fortawesome/free-solid-svg-icons
 RUN npm cache add @fortawesome/vue-fontawesome@latest
 
+RUN npm cache add three@latest
+RUN npm cache add @types/three
+RUN npm cache add react@react-dom
+
 RUN npm i
 
 CMD ["npm", "run", "dev"]

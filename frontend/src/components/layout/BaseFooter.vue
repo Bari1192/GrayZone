@@ -16,10 +16,10 @@
                 </div>
 
                 <!-- Középső linkek szekció -->
-                <div class="w-full sm:col-span-2 lg:col-span-2">
+                <div class="w-full sm:col-span-2 mx-auto lg:col-span-2">
                     <div class="grid grid-cols-2 gap-4 sm:gap-8">
                         <!-- Gyors linkek -->
-                        <div class="text-center sm:text-left">
+                        <div class="text-center">
                             <h3 class="text-white font-semibold mb-4">Tippek & Trükkök</h3>
                             <ul class="space-y-2">
                                 <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Temu Tricks</a></li>
@@ -29,7 +29,7 @@
                         </div>
 
                         <!-- Információk -->
-                        <div class="text-center sm:text-left">
+                        <div class="text-center ">
                             <h3 class="text-white font-semibold mb-4">Információk</h3>
                             <ul class="space-y-2">
                                 <li class="text-gray-400 hover:text-pink-500 transition-colors">Rólunk</li>
@@ -42,17 +42,16 @@
 
                 <!-- Hírlevél feliratkozás -->
                 <div class="w-full sm:col-span-2 lg:col-span-1">
-                    <p class="text-white font-semibold mb-4 text-center sm:text-left">Íratkozz fel, hogy elsőként értesülj!</p>
-                    <div class="flex max-w-xs mx-auto sm:mx-0">
+                    <p class="text-white font-semibold mb-4 text-center">Íratkozz fel, hogy elsőként értesülj!</p>
+                    <div class="flex max-w-xs mx-auto mb-8 lg:mb-4 ">
                         <input type="email" placeholder="Email címed"
                             class="bg-gray-800 text-gray-300 px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-pink-500 flex-grow w-full">
                         <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-r-lg transition-colors">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
-                    <p class="text-gray-400 text-sm mt-3 px-2 text-center sm:text-left">
-                        Ne aggódj, nem küldünk spamet! Csak a legjobb tippeket és trükköket!
-                        Feliratkozással hozzájárulsz az <u class="underline-offset-2 italic">adatkezelési tájékoztatóban</u> foglaltakhoz.
+                    <p class="text-gray-400 text-sm px-2 text-center lg:text-left">
+                        *Feliratkozással hozzájárulsz az <u class="underline-offset-2 italic">adatkezelési tájékoztatóban</u> foglaltakhoz.
                     </p>
                 </div>
             </div>
