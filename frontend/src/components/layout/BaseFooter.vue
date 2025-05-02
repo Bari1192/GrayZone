@@ -1,9 +1,7 @@
 <template>
-    <footer class="bg-gray-900 border-t-2 border-gray-800 pt-8 sm:pt-12 pb-6 sm:pb-8 mt-20 sm:mt-40 lg:mt-60">
+    <footer class="bg-gray-900 border-t-2 border-gray-800 pt-8 sm:pt-12 pb-6 sm:pb-8 mt-5">
         <div class="w-full max-w-[90%] lg:max-w-7xl md:max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Fő footer grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 sm:gap-8 mb-8">
-                <!-- Logo és rövid leírás -->
                 <div class="w-full sm:col-span-2 lg:col-span-1">
                     <img src="../../assets/img/logos/GrayZone_logo.png" alt="GrayZone Life Hacks"
                         class="w-auto h-16 sm:h-24 object-contain mx-auto">
@@ -15,10 +13,8 @@
                     </p>
                 </div>
 
-                <!-- Középső linkek szekció -->
                 <div class="w-full sm:col-span-2 mx-auto lg:col-span-2">
                     <div class="grid grid-cols-2 gap-4 sm:gap-8">
-                        <!-- Gyors linkek -->
                         <div class="text-center">
                             <h3 class="text-white font-semibold mb-4">Tippek & Trükkök</h3>
                             <ul class="space-y-2">
@@ -28,7 +24,6 @@
                             </ul>
                         </div>
 
-                        <!-- Információk -->
                         <div class="text-center ">
                             <h3 class="text-white font-semibold mb-4">Információk</h3>
                             <ul class="space-y-2">
@@ -40,7 +35,6 @@
                     </div>
                 </div>
 
-                <!-- Hírlevél feliratkozás -->
                 <div class="w-full sm:col-span-2 lg:col-span-1">
                     <p class="text-white font-semibold mb-4 text-center">Íratkozz fel, hogy elsőként értesülj!</p>
                     <div class="flex max-w-xs mx-auto mb-8 lg:mb-4 ">
@@ -56,7 +50,6 @@
                 </div>
             </div>
 
-            <!-- Copyright és social ikonok -->
             <div class="border-t border-gray-800 pt-6 sm:pt-8">
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p class="text-gray-400 text-sm text-center sm:text-left">

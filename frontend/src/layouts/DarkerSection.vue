@@ -31,10 +31,6 @@ const props = defineProps({
     type: String,
     default: "🎁"
   },
-  details: {
-    type: String,
-    required: true
-  },
 });
 
 const toggleState = () => {
@@ -44,66 +40,57 @@ const toggleState = () => {
 </script>
 
 <template>
-  <div class="mx-4 h-full min-h-[75svh] min-w-[screen] flex flex-col justify-center items-center align-middle"
-    style="font-family: 'Nunito';">
-    <div class="h-full w-full flex lg:flex-row gap-8 items-center justify-between max-w-[1500px] mx-auto
-       py-14 px-4 rounded-xl">
-
-      <!-- Balos felsorolás rész -->
+  <div class="h-full min-h-[75svh] min-w-[screen] bg-slate-950 flex flex-col justify-center items-center rounded-t-lg rounded-b-lg
+ border-t-2 border-sky-300/40 border-b-2" style="font-family: 'Nunito';">
+    <div
+      class="w-full flex flex-col md:flex-row gap-8 items-center justify-between max-w-[1500px] mx-auto py-14 px-4 rounded-xl">
       <div class="flex-1 h-full mx-auto">
-        <p class="text-2xl font-bold text-orange-400 mb-4 border-b-4 rounded-xl border-orange-50/75 pb-1 max-w-fit">
+        <p
+          class="text-xl md:text-2xl font-bold text-orange-400 mb-4 border-b-4 rounded-xl border-orange-50/75 pb-1 max-w-fit">
           {{ title_CTA }}
         </p>
         <ul class="list-disc text-slate-300 pl-4 space-y-2 text-lg">
-          <!-- Ide :item -ként majd megadjuk, mi fog menni a listába -->
-          <li v-for="(item, index) in listItems" :key="index">
-            {{ item }}
-          </li>
+          <li v-for="(item, index) in listItems" :key="index">{{ item }}</li>
         </ul>
-        <div class=" flex justify-center mt-6">
+        <div class="flex justify-center mt-6">
           <button @click="toggleState"
-            class="mt-4 px-6 font-semibold tracking-wide py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600">
-            Bővebben ▼
+            class="mt-4 px-6 py-2 font-semibold tracking-wide bg-orange-500 text-white rounded-md hover:bg-orange-600 w-full md:w-auto">
+            Bővebben▼
           </button>
         </div>
       </div>
-      <!-- Jobbon, kártya -->
-      <div class="flex-1 flex justify-center align-middle items-center " @click="toggleState">
+      <div class="flex-1 flex justify-center items-center" @click="toggleState">
         <div tabindex="0" role="button" :aria-pressed="flipped"
           class="kupon-perspective w-[180px] h-[260px] md:w-[220px] md:h-[300px] mx-auto cursor-pointer outline-none"
-          :style="{
-            transform: flipped
-              ? 'rotateY(0deg) rotateZ(-6deg) scale(1.04)'
-              : 'rotateY(-12deg) rotateZ(6deg) scale(1.03)',
-            transition: 'transform 0.5s cubic-bezier(.46, .96, .72, 1.14)',
-          }">
-          <div class="kupon-flip-container " :class="{ flipped }">
-            <!-- Front -->
+          :style="{ transform: flipped ? 'rotateY(0deg) rotateZ(6deg) scale(1.04)' : 'rotateY(-12deg) rotateZ(-6deg) scale(1.03)', transition: 'transform 0.5s cubic-bezier(.46,.96,.72,1.14)' }">
+          <div class="kupon-flip-container" :class="{ flipped }">
+            <!-- Front oldal -->
             <div class="kupon-face kupon-front bg-orange-100">
               <div class="flex flex-col items-center gap-3">
                 <div
-                  class="mt-1 px-2 py-1 border-orange-200 transition text-sm lg:text-xl text-orange-500 font-extrabold text-center"
-                  style="font-family: Nunito;">
+                  class="mt-1 px-2 py-1 border-orange-200 transition text-xs sm:text-sm lg:text-xl text-orange-500 font-extrabold text-center"
+                  style="font-family:Nunito;">
                   {{ TitleDiscountPercent }}
                 </div>
-                <div class="text-5xl mb-1">{{ icon }}</div>
-                <div class="font-bold text-sm lg:text-lg text-center mb-1 lg:px-2 uppercase lg:tracking-wider">
+                <div class="text-4xl sm:text-5xl mb-1">{{ icon }}</div>
+                <div
+                  class="font-bold text-xs sm:text-sm lg:text-lg text-center mb-1 lg:px-2 uppercase lg:tracking-wider">
                   {{ frontTitle }}
                 </div>
                 <div
-                  class="mt-1 px-2 py-1 bg-orange-300 border border-orange-200 transition text-sm text-lime-900 font-bold text-center rounded hover:bg-orange-400 hover:text-white hover:rounded-md">
+                  class="mt-1 px-2 py-1 bg-orange-300 border border-orange-200 transition text-xs sm:text-sm text-lime-900 font-bold text-center rounded hover:bg-orange-400 hover:text-white hover:rounded-md">
                   Kattints a részletekért!
                 </div>
               </div>
             </div>
-            <!-- Back -->
+            <!-- Back oldal -->
             <div class="kupon-face kupon-back">
               <div class="flex flex-col items-center gap-2 px-3 py-4">
-                <div class="text-orange-500 font-bold text-lg mb-2 lg:text-center lg:px-4">
+                <div class="text-orange-500 font-bold text-sm sm:text-lg mb-2 lg:text-center lg:px-4">
                   {{ backText }}
                 </div>
-                <div class="mt-2 text-base text-gray-800/90 font-medium text-center">
-                  🎉 Kódod használható!
+                <div class="mt-2 text-xs sm:text-base text-gray-800/90 font-medium text-center">
+                  🎉Kódod használható!
                 </div>
               </div>
             </div>
@@ -111,11 +98,11 @@ const toggleState = () => {
         </div>
       </div>
     </div>
-
     <transition name="expand" class="mb-12">
       <div v-show="isExpanded"
-        class="flex-2 flex-col place-items-start overflow-hidden max-w-[1500px] mt-6 bg-slate-700/70 p-8 rounded-md w-3/5">
-        <h3 class="text-xl mb-4 text-amber-600 bg-white p-2 rounded-xl underline underline-offset-4 tracking-wide uppercase font-bold">
+        class="flex flex-col place-items-start overflow-hidden max-w-[1500px] mt-6 bg-slate-700/70 p-8 rounded-md w-full md:w-3/5">
+        <h3
+          class="text-lg md:text-xl mb-4 text-amber-600 bg-white p-2 rounded-xl underline underline-offset-4 tracking-wide uppercase font-bold">
           Rövid, és <b>hasznos</b> részletek:
         </h3>
         <p class="text-slate-200 leading-6">

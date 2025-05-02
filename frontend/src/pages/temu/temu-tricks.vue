@@ -1,7 +1,6 @@
 <template>
     <BaseHeader />
-    <!-- Fő szekció -->
-    <div class="min-h-screen bg-gray-900 text-white">
+    <div class="min-h-screen bg-gray-900 text-white  lg:mb-20">
         <div class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-pink-900 to-orange-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                 <div class="text-center" data-animate="hero" ref="heroSection">
@@ -24,21 +23,18 @@
                 </div>
             </div>
 
-            <!-- Dekoratív háttérelemek -->
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                 <div class="absolute w-64 h-64 rounded-full bg-pink-600/20 blur-3xl -top-10 -left-10"></div>
                 <div class="absolute w-64 h-64 rounded-full bg-purple-600/20 blur-3xl top-40 right-10"></div>
             </div>
         </div>
 
-        <!-- Fő szekciók -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid md:grid-cols-3 gap-8">
                 <MainSection />
             </div>
         </div>
 
-        <!-- Gyors tippek szekció -->
         <div class="bg-gray-800/30 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold mb-8 text-center">
@@ -53,8 +49,8 @@
             </div>
         </div>
 
-        <!-- Call to Action -->
-        <router-link to="/temu/temu-coupons">
+        <!-- CTA -->
+        <router-link to="/temu/temu-coupons ">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
                 <div
                     class="bg-gradient-to-r from-pink-900/50 to-purple-900/50 rounded-2xl p-12 backdrop-blur-lg border border-gray-700">

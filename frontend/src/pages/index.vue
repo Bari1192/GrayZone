@@ -22,10 +22,8 @@
             </p>
           </div>
 
-          <!-- Elválasztó vonal -->
           <div class="separator my-12"></div>
 
-          <!-- CTA Gomb szekció az animált nyíllal -->
           <div class="cta-container relative">
             <div class="animated-arrow">
               <i class="fa-solid fa-arrow-right"></i>

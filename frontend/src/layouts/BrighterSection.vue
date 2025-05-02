@@ -45,7 +45,6 @@ const toggleState = () => {
 
     <div class="h-full w-full flex lg:flex-row gap-8 items-center justify-between max-w-[1500px] mx-auto
       bg-slate-900 py-14 px-4 rounded-xl">
-      <!-- Left: Flipping Card -->
       <div class="flex-1 flex justify-center align-middle items-center " @click="toggleState">
         <div tabindex="0" role="button" :aria-pressed="flipped"
           class="kupon-perspective w-[180px] h-[260px] md:w-[220px] md:h-[300px] mx-auto cursor-pointer outline-none"
@@ -56,7 +55,7 @@ const toggleState = () => {
             transition: 'transform 0.5s cubic-bezier(.46, .96, .72, 1.14)',
           }">
           <div class="kupon-flip-container " :class="{ flipped }">
-            <!-- Front -->
+            <!-- Fronton -->
             <div class="kupon-face kupon-front bg-orange-100">
               <div class="flex flex-col items-center gap-3">
                 <div
@@ -74,7 +73,7 @@ const toggleState = () => {
                 </div>
               </div>
             </div>
-            <!-- Back -->
+            <!-- hátoldal -->
             <div class="kupon-face kupon-back">
               <div class="flex flex-col items-center gap-2 px-3 py-4">
                 <div class="text-orange-600 font-base text-lg text-center mb-2">
@@ -109,7 +108,6 @@ const toggleState = () => {
       </div>
     </div>
 
-    <!-- Tartalmi leíró szöveg kifejtve -->
     <transition name="expand" class="mb-12">
       <div v-show="isExpanded"
         class="flex-2 flex-col place-items-start overflow-hidden max-w-[1500px] mt-6 bg-slate-700/70 p-8 rounded-md w-3/5">
