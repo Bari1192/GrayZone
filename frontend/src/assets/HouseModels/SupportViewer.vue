@@ -47,7 +47,6 @@
                     {{ message.icon }} {{ message.text }}
                 </div>
             </div>
-
             <!-- Chat Inputja -->
             <div class="p-4 border-t">
                 <div class="flex gap-2">
