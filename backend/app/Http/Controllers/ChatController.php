@@ -4,47 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreChatRequest;
 use App\Http\Requests\UpdateChatRequest;
+use App\Http\Resources\ChatResource;
 use App\Models\Chat;
 
 class ChatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $chats = Chat::all();
+        return ChatResource::collection($chats);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreChatRequest $request)
+    public function store(StoreChatRequest $request, Chat $chat)
     {
-        //
+        $data = $request->validated();
+        $chat = Chat::create($data);
+        return new ChatResource($chat);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Chat $chat)
     {
-        //
+        return ChatResource::collection($chat);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateChatRequest $request, Chat $chat)
     {
-        //
+        $data = $request->validated();
+        $chat->update($data);
+        return new ChatResource($chat);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Chat $chat)
     {
-        //
+        return ($chat->delete() ? response()->noContent() : abort(500));
     }
 }
