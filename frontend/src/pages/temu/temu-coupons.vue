@@ -5,6 +5,7 @@ import BrighterSection from '@layouts/BrighterSection.vue';
 import DarkerSection from '@layouts/DarkerSection.vue';
 import BookMarkSection from './sections/temu-coupons/bookmark.vue';
 import ModelViewer from '@assets/HouseModels/ModelViewer.vue'
+import SupportViewer from '@assets/HouseModels/SupportViewer.vue';
 
 import { RouterLink } from 'vue-router';
 
@@ -27,6 +28,11 @@ import { RouterLink } from 'vue-router';
         </div>
     </div>
 
+
+    <SupportViewer src="/support.glb" />
+
+
+    
     <div class="flex flex-col justify-center items-start mx-auto lg:w-4/5 min-h-[50svh] text-white"
         style="font-family:Nunito ;">
         <div class="mx-auto text-2xl font-semibold">
@@ -283,7 +289,8 @@ import { RouterLink } from 'vue-router';
         </div>
     </DarkerSection>
     <div class="flex items-center justify-center my-auto w-full bg-slate-900 mb-40">
-        <div class="mx-4 lg:m-20 w-full xl:w-10/12 mb-20 flex items-center py-16 justify-center bg-slate-950 rounded-2xl">
+        <div
+            class="mx-4 lg:m-20 w-full xl:w-10/12 mb-20 flex items-center py-16 justify-center bg-slate-950 rounded-2xl">
             <div
                 class="w-full md:w-full lg:w-4/5 xl:w-5/12 bg-gradient-to-r from-pink-900/50 to-purple-900/50 rounded-2xl p-12 backdrop-blur-lg border border-indigo-600">
                 <div class="flex flex-col md:flex-row justify-center font-bold text-white text-center w-full">

@@ -76,7 +76,8 @@ function initThree() {
     controls.enablePan = false;
     controls.enableZoom = false;
     controls.target.set(0, 1, 0);
-    controls.maxPolarAngle = Math.PI / 2.13;
+    controls.minPolarAngle = Math.PI / 2.5;
+    controls.maxPolarAngle = Math.PI / 2.9;
     controls.minDistance = 6;
     controls.maxDistance = 12;
 }
@@ -86,7 +87,7 @@ function animate(ts) {
     if (model) {
         if (!startTime) startTime = ts;
         const elapsed = (ts - startTime) / 1000;
-        model.rotation.y = -(2 * Math.PI / 60) * elapsed;
+        model.rotation.y = 5.5/ 100 * elapsed;
     }
     controls.update();
     renderer.render(scene, camera);
