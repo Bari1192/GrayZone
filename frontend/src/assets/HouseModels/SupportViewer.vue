@@ -23,11 +23,11 @@
 
         <!-- Chat Interface -->
         <div v-if="isChatInterfaceVisible"
-            class="absolute bottom-full mb-4 right-0 bg-white rounded-lg shadow-xl animate-fade-in"
+            class="absolute bottom-full mb-4 right-0 bg-indigo-100 rounded-xl shadow-xl animate-fade-in border-2 border-slate-600"
             style="width: 320px; max-height: 480px;">
             <!-- Chat Header -->
-            <div class="p-4 border-b bg-indigo-500 rounded-t-lg flex justify-between items-center">
-                <h3 class="text-white font-medium">Chat Asszisztens</h3>
+            <div class="p-4 bg-indigo-500 rounded-t-lg flex justify-between border-b-4 border-indigo-800 items-center">
+                <h3 class="text-orange-100 text-xl" style="font-family: 'Nunito','Arial';">Temu-Kupon Asszisztens</h3>
                 <button @click="closeChatInterface" class="text-white hover:bg-indigo-600 rounded-full p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
@@ -41,11 +41,10 @@
             <div ref="chatMessages" class="p-4 space-y-4 overflow-auto" style="height: 300px;">
                 <div v-for="(message, index) in chatHistory" :key="index" :class="[
                     'p-3 rounded-lg max-w-[85%]',
-                    message.type === 'user'
-                        ? 'bg-indigo-500 text-white ml-auto'
-                        : 'bg-gray-100 text-gray-800'
+                    message.type === 'user' ? 'bg-rose-400 text-white ml-auto'
+                        : 'bg-indigo-500 text-orange-50 py-2'
                 ]">
-                    {{ message.text }}
+                    {{ message.icon }} {{ message.text }}
                 </div>
             </div>
 
@@ -78,7 +77,7 @@ const isChatInterfaceVisible = ref(false);
 const userMessage = ref('');
 const chatMessages = ref(null);
 const chatHistory = ref([
-    { type: 'bot', text: 'Üdvözlöm! Miben segíthetek?' }
+    { type: 'bot', icon: '💬', text: 'Üdvözlöm! Miben segíthetek?' }
 ]);
 
 const props = defineProps({
