@@ -3,19 +3,22 @@
         <!-- Model Container -->
         <div ref="container mx-auto"
             class="model-container mx-auto flex justify-center items-center cursor-pointer transform hover:scale-105 transition-transform
-             bg-white bg-opacity-85 border-x-4 border-amber-500/70 rounded-full border-b-8 border-b-orange-500/70 border-t-8 border-t-orange-500/70"
+             bg-white bg-opacity-85 border-x-4 border-amber-500/70 rounded-full border-b-8 border-b-orange-500/70 
+             border-t-8 border-t-orange-500/70"
             @click="showInitialBubble">
             <canvas ref="modelCanvas" class="w-24 h-24 mx-auto lg:w-full lg:h-full "></canvas>
         </div>
 
         <!-- Initial Help Bubble -->
         <div v-if="isInitialBubbleVisible" @click="showChatInterface"
-            class="absolute bottom-full mb-4 right-0 bg-white rounded-lg shadow-xl p-4 animate-fade-in w-48 cursor-pointer hover:bg-gray-50">
+            class="absolute bottom-full mb-4 right-0 bg-white rounded-lg shadow-xl p-4 animate-fade-in w-52 lg:w-56 cursor-pointer hover:bg-gray-50">
             <div class="relative">
-                <p class="text-gray-800 font-medium">Segíthetek valamiben?</p>
+                <p class="text-rose-600 font-medium lg:text-nowrap text-center">
+                    <i class="fa-solid fa-hand-peace text-rose-500 text-xl"></i> Segíthetek valamiben?
+                </p>
                 <div class="absolute -bottom-8 right-6 
                     border-l-[8px] border-l-transparent
-                    border-t-[8px] border-t-white
+                    border-t-[8px] border-t-rose-400
                     border-r-[8px] border-r-transparent">
                 </div>
             </div>
@@ -24,11 +27,11 @@
         <!-- Chat Interface -->
         <div v-if="isChatInterfaceVisible"
             class="absolute bottom-full mb-4 right-0 bg-indigo-100 rounded-xl shadow-xl animate-fade-in border-2 border-slate-600"
-            style="width: 320px; max-height: 480px;">
+            style="width: 330px; max-height: 480px;">
             <!-- Chat Header -->
             <div class="p-4 bg-indigo-500 rounded-t-lg flex justify-between border-b-4 border-indigo-800 items-center">
                 <h3 class="text-orange-100 text-xl" style="font-family: 'Nunito','Arial';">Temu-Kupon Asszisztens</h3>
-                <button @click="closeChatInterface" class="text-white hover:bg-indigo-600 rounded-full p-1">
+                <button @click="closeChatInterface" class="text-white hover:bg-rose-400 rounded-full p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
                             d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -48,13 +51,14 @@
                 </div>
             </div>
             <!-- Chat Inputja -->
-            <div class="p-4 border-t">
+            <div class="px-4 py-3">
                 <div class="flex gap-2">
                     <input v-model="userMessage" @keyup.enter="sendMessage" type="text"
                         placeholder="Írja be üzenetét..."
                         class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" />
                     <button @click="sendMessage" :disabled="!userMessage.trim()"
-                        class="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                        class="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:opacity-50
+                         disabled:cursor-not-allowed">
                         Küldés
                     </button>
                 </div>
@@ -183,12 +187,10 @@ onMounted(() => {
     nextTick(() => {
         initThree();
         animate();
-        window.addEventListener('resize', onResize);
     });
 });
 
 onBeforeUnmount(() => {
-    window.removeEventListener('resize', onResize);
     if (animationId) {
         cancelAnimationFrame(animationId);
     }
