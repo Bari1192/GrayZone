@@ -6,8 +6,6 @@ class ErrorFaresKeywords
 {
     public static function keywords(): array
     {
-        return [
-            "Hibás", "árak", "utazás", "hol", "repülés", "vezetés", "európa", "USA", "Kedvezmény", "akció",
-        ];
+        return ["Hibás", "árak", "utazás", "hol", "repülés", "vezetés", "európa", "USA", "Kedvezmény", "akció"];
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreChatRequest;
 use App\Http\Requests\UpdateChatRequest;
 use App\Http\Resources\ChatResource;
 use App\Models\Chat;
+use App\Services\ChatResponderService;
 
 class ChatController extends Controller
 {
@@ -15,11 +16,15 @@ class ChatController extends Controller
         return ChatResource::collection($chats);
     }
 
-    public function store(StoreChatRequest $request, Chat $chat)
+    public function store(StoreChatRequest $request, Chat $chat, ChatResponderService $chatResponderService)
     {
-        $data = $request->validated();
-        $chat = Chat::create($data);
-        return new ChatResource($chat);
+        $data = $request->validated(); // Elsőnek validáljuk le, amit beküld
+        $response = $chatResponderService->responed($data['message']); // Ezt tovább küldjük utána a Service-nek feldolgozásra.
+        Chat::create($data); // Nem küldjük vissza a beírt szövegét, hanem csak a választ adjuk meg rá.
+        // return new ChatResource($response);
+        return response()->json([
+            'válasz/reply' => $response
+        ]);
     }
 
     public function show(Chat $chat)

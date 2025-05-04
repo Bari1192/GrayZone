@@ -7,7 +7,16 @@ class CarsharingTipsKeywords
     public static function keywords(): array
     {
         return [
-            // same;
+            "auto",
+            "megosztó",
+            "greengo",
+            "green go",
+            "kredit",
+            "bónusz",
+            "mikor",
+            "mennyi",
+            "vezetes",
+            "akció"
         ];
     }
 }

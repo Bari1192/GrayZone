@@ -12,7 +12,8 @@ return new class extends Migration
             $table->id();
             // Ez lesz a FŐ téma-csoport (Temu-Tricks, Carsharing-Tips és Error-Fares alapján), 
             // Kezdetnek csak egy base URL címet dob vissza majd meg vmi sample szöveget.
-            $table->enum('response_family', ['Temu Tricks', 'Carsharing Tips', 'Error Fares']);
+            // $table->enum('response_family', ['Temu Tricks', 'Carsharing Tips', 'Error Fares']);
+            $table->string('message', 150);
             $table->string('response_child', 50)->nullable(); // Ez lesz az al-témacsoport. Azaz majd a weboldalon belül hova navigálja a vendéget majd.
             $table->timestamps();
         });

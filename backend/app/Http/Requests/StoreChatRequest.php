@@ -15,8 +15,9 @@ class StoreChatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'response_family' => ['required', 'string', Rule::in('Temu Tricks', 'Carsharing Tips', 'Error Fares')],
-            'response_child' => ['string'],
+            // 'response_family' => ['required', 'string', Rule::in('Temu Tricks', 'Carsharing Tips', 'Error Fares')],
+            'message' => ['required', 'string', 'max:150'],
+            // 'response_child' => ['string'],
         ];
     }
 }

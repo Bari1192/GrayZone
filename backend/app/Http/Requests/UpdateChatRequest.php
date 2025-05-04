@@ -15,7 +15,8 @@ class UpdateChatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'response_family' => ['required', 'string', Rule::in(['Temu Tricks', 'Carsharing Tips', 'Error Fares']), 'exists:response_family'],
+            // 'response_family' => ['required', 'string', Rule::in(['Temu Tricks', 'Carsharing Tips', 'Error Fares']), 'exists:response_family'],
+            'message' => ['required', 'string', 'max:150'],
             'response_child' => ['string'],
         ];
     }
