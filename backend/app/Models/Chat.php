@@ -11,11 +11,8 @@ class Chat extends Model
 
     protected $fillable = [
         'id',
-        'response_family',
+        'message',
         'response_child',
-        'created_at',
-        'updated_at',
-        'deleted_at',
     ];
     public $timestamps = true;
 }

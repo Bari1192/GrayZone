@@ -1,11 +1,9 @@
 <template>
     <div class="fixed bottom-4 right-4 z-50">
         <!-- Model Container -->
-        <div ref="container mx-auto"
-            class="model-container mx-auto flex justify-center items-center cursor-pointer transform hover:scale-105 transition-transform
+        <div ref="container mx-auto" class="model-container mx-auto flex justify-center items-center cursor-pointer transform hover:scale-105 transition-transform
              bg-white bg-opacity-85 border-x-4 border-amber-500/70 rounded-full border-b-8 border-b-orange-500/70 
-             border-t-8 border-t-orange-500/70"
-            @click="showInitialBubble">
+             border-t-8 border-t-orange-500/70" @click="showInitialBubble">
             <canvas ref="modelCanvas" class="w-24 h-24 mx-auto lg:w-full lg:h-full "></canvas>
         </div>
 
@@ -24,11 +22,12 @@
             </div>
         </div>
 
-        <!-- Chat Interface -->
+        <!-- Full chat "Interface" -->
         <div v-if="isChatInterfaceVisible"
             class="absolute bottom-full mb-4 right-0 bg-indigo-100 rounded-xl shadow-xl animate-fade-in border-2 border-slate-600"
             style="width: 330px; max-height: 480px;">
-            <!-- Chat Header -->
+            
+            <!-- Chat "Fejléc-Törzs" -->
             <div class="p-4 bg-indigo-500 rounded-t-lg flex justify-between border-b-4 border-indigo-800 items-center">
                 <h3 class="text-orange-100 text-xl" style="font-family: 'Nunito','Arial';">Temu-Kupon Asszisztens</h3>
                 <button @click="closeChatInterface" class="text-white hover:bg-rose-400 rounded-full p-1">
@@ -40,7 +39,7 @@
                 </button>
             </div>
 
-            <!-- Chat all Messages -->
+            <!-- Chat history, üzenetfolyam része -->
             <div ref="chatMessages" class="p-4 space-y-4 overflow-auto" style="height: 300px;">
                 <div v-for="(message, index) in chatHistory" :key="index" :class="[
                     'p-3 rounded-lg max-w-[85%]',
@@ -50,14 +49,12 @@
                     {{ message.icon }} {{ message.text }}
                 </div>
             </div>
-            <!-- Chat Inputja -->
+            <!-- Chat >-> Input rész -->
             <div class="px-4 py-3">
                 <div class="flex gap-2">
-                    <input v-model="userMessage" @keyup.enter="sendMessage" type="text"
-                        placeholder="Írja be üzenetét..."
+                    <input v-model="userMessage" @keyup.enter="submit" type="text" placeholder="Írja be üzenetét..."
                         class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" />
-                    <button @click="sendMessage" :disabled="!userMessage.trim()"
-                        class="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:opacity-50
+                    <button @click="submit" :disabled="!userMessage.trim()" class="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:opacity-50
                          disabled:cursor-not-allowed">
                         Küldés
                     </button>
@@ -72,23 +69,38 @@ import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { useChatStore } from '@stores/ChatStore.mjs';
+import { storeToRefs } from 'pinia';
 
 // Referenciák definiálása
 const modelCanvas = ref(null);
 const isInitialBubbleVisible = ref(false);
 const isChatInterfaceVisible = ref(false);
-const userMessage = ref('');
 const chatMessages = ref(null);
 const chatHistory = ref([
     { type: 'bot', icon: '💬', text: 'Üdvözlöm! Miben segíthetek?' }
 ]);
 
+const chatStore = useChatStore();
+const { chats } = storeToRefs(chatStore);
+const userMessage = ref('')
+
+
 const props = defineProps({
     src: { type: String, required: true }
 });
 
-let renderer, scene, camera, controls, model, animationId;
+async function submit() {
+    if (!userMessage.value.trim()) return
+    chatHistory.value.push({ type: 'user', text: userMessage.value })
+    const reply = await chatStore.sendMessage(userMessage.value)
+    chatHistory.value.push({ type: 'bot', text: reply || 'Hiba történt!' })
+    userMessage.value = ''
+}
 
+
+
+let renderer, scene, camera, controls, model, animationId;
 function initThree() {
     // Fix méretezés
     const containerWidth = 96;

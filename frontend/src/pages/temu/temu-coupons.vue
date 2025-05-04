@@ -5,7 +5,7 @@ import BrighterSection from '@layouts/BrighterSection.vue';
 import DarkerSection from '@layouts/DarkerSection.vue';
 import BookMarkSection from './sections/temu-coupons/bookmark.vue';
 import ModelViewer from '@assets/HouseModels/ModelViewer.vue'
-import SupportViewer from '@assets/HouseModels/SupportViewer.vue';
+import SupportViewer from '@pages/temu/sections/temu-coupons/SupportViewer.vue';
 
 import { RouterLink } from 'vue-router';
 
