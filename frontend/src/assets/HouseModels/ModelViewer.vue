@@ -18,8 +18,8 @@ let renderer, scene, camera, controls, model, animationId, startTime = null;
 
 function initThree() {
     // Győződj meg róla, hogy a container már rendelkezésre áll, és annak mérete meghatározott
-    const containerWidth = container.value ? container.value.clientWidth : 120;
-    const containerHeight = container.value ? container.value.clientHeight : 100;
+    const containerWidth = 280
+    const containerHeight = 350;
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(30, containerWidth / containerHeight, 0.1, 100);
@@ -93,25 +93,14 @@ function animate(ts) {
     renderer.render(scene, camera);
 }
 
-function onResize() {
-    if (!renderer || !camera || !container.value) return;
-    const width = container.value.clientWidth;
-    const height = container.value.clientHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-}
-
 onMounted(() => {
     nextTick(() => {
         initThree();
-        window.addEventListener('resize', onResize);
         animate();
     });
 });
 
 onBeforeUnmount(() => {
-    window.removeEventListener('resize', onResize);
     if (animationId) cancelAnimationFrame(animationId);
     if (renderer) renderer.dispose();
 });
@@ -122,33 +111,8 @@ onBeforeUnmount(() => {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-}
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 
-@media (min-width:1px) and (max-width: 640px) {
-    .model-container {
-        width: 100px;
-        height: 200px;
-    }
-}
-
-@media (min-width: 640px) {
-    .model-container {
-        height: 250px;
-        width: 300px;
-
-    }
-}
-
-@media (min-width: 768px) {
-    .model-container {
-        height: 400px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .model-container {
-        height: 500px;
-    }
 }
 </style>

@@ -288,11 +288,11 @@ import { RouterLink } from 'vue-router';
             </div>
         </div>
     </DarkerSection>
-    <div class="flex items-center justify-center my-auto w-full bg-slate-900 mb-40">
+    <div class="flex items-center justify-center my-auto w-full" style="font-family: 'Nunito','Arial';">
         <div
-            class="mx-4 lg:m-20 w-full xl:w-10/12 mb-20 flex items-center py-16 justify-center bg-slate-950 rounded-2xl">
+            class="lg:my-20 w-full mb-20 flex items-center py-16 justify-center bg-slate-900 rounded-2xl">
             <div
-                class="w-full md:w-full lg:w-4/5 xl:w-5/12 bg-gradient-to-r from-pink-900/50 to-purple-900/50 rounded-2xl p-12 backdrop-blur-lg border border-indigo-600">
+                class="w-full md:w-full lg:w-4/5 xl:w-7/12 bg-gradient-to-r from-pink-900/50 to-purple-900/50 rounded-2xl p-12 backdrop-blur-lg border border-indigo-600">
                 <div class="flex flex-col md:flex-row justify-center font-bold text-white text-center w-full">
                     <span class="hidden md:block text-xl md:text-2xl lg:text-2xl xl:text-3xl">👑</span>
                     <span class="text-3xl xl:text-4xl whitespace-nowrap">Ez is érdekelhet!</span>
@@ -303,7 +303,7 @@ import { RouterLink } from 'vue-router';
                     <ModelViewer src="/csaladihaz.glb" />
                 </div>
 
-                <p class="text-2xl text-gray-100 mb-8 text-center">
+                <p class="text-2xl text-gray-100 my-8 text-center">
                     Kövesd tippjeinket és a pénztárcád helyett legyen<br>
                     <span class="text-orange-400 font-semibold">a lakásfelújítás maximumon!</span>
                 </p>

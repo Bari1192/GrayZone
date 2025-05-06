@@ -40,79 +40,100 @@ const toggleState = () => {
 </script>
 
 <template>
-  <div class="h-full min-h-[75svh] min-w-[screen] bg-slate-900 flex flex-col justify-center items-center rounded-t-lg rounded-b-lg
-    border-t-2 border-sky-300/40 border-b-2" style="font-family: 'Nunito';">
+  <div class="mx-auto h-full min-h-[75svh] min-w-[screen] bg-slate-900 flex flex-col 
+  justify-center items-center rounded-t-lg rounded-b-lg
+  border-t-2 border-sky-300/40 border-b-2" style="font-family: 'Nunito';">
+  
+    <div class="w-full max-w-[screen] mx-auto py-14 px-4">
 
-    <div class="h-full w-full flex lg:flex-row gap-8 items-center justify-between max-w-[1500px] mx-auto
-      bg-slate-900 py-14 px-4 rounded-xl">
-      <div class="flex-1 flex justify-center align-middle items-center " @click="toggleState">
-        <div tabindex="0" role="button" :aria-pressed="flipped"
-          class="kupon-perspective w-[180px] h-[260px] md:w-[220px] md:h-[300px] mx-auto cursor-pointer outline-none"
-          :style="{
-            transform: flipped
-              ? 'rotateY(0deg) rotateZ(-6deg) scale(1.04)'
-              : 'rotateY(-12deg) rotateZ(6deg) scale(1.03)',
-            transition: 'transform 0.5s cubic-bezier(.46, .96, .72, 1.14)',
-          }">
-          <div class="kupon-flip-container " :class="{ flipped }">
-            <!-- Fronton -->
-            <div class="kupon-face kupon-front bg-orange-100">
-              <div class="flex flex-col items-center gap-3">
-                <div
-                  class="mt-1 px-2 py-1 border-orange-200 transition text-sm lg:text-xl text-orange-500 font-extrabold text-center"
-                  style="font-family: Nunito;">
-                  {{ TitleDiscountPercent }}
+      <div class="grid grid-cols-1 md:grid-cols-8 lg:gap-8 items-start">
+        
+        <!-- 1. Üres bal oldali térköz -->
+        <div class="block"></div>
+
+        <!-- 2. Kártya -->
+        <div class="flex flex-col items-center col-span-2 w-full h-full">
+          <div class="flex justify-center items-center w-full h-full md:mr-8" @click="toggleState">
+            <div tabindex="0" role="button" :aria-pressed="flipped"
+              class="kupon-perspective w-[180px] h-[260px] md:w-[220px] md:h-[300px] mx-auto cursor-pointer outline-none"
+              :style="{ transform: flipped ? 'rotateY(0deg) rotateZ(6deg) scale(1.04)' : 'rotateY(-12deg) rotateZ(-6deg) scale(1.03)', transition: 'transform 0.5s cubic-bezier(.46,.96,.72,1.14)' }">
+              <div class="kupon-flip-container" :class="{ flipped }">
+                <!-- Front -->
+                <div class="kupon-face kupon-front bg-orange-100">
+                  <div class="flex flex-col items-center gap-3">
+                    <div
+                      class="mt-1 px-2 py-1 border-orange-200 transition text-xs sm:text-sm lg:text-xl text-orange-500 font-extrabold text-center"
+                      style="font-family:Nunito;">
+                      {{ TitleDiscountPercent }}
+                    </div>
+                    <div class="text-4xl sm:text-5xl mb-1">{{ icon }}</div>
+                    <div
+                      class="font-bold text-xs sm:text-sm lg:text-lg text-center mb-1 lg:px-2 uppercase lg:tracking-wider">
+                      {{ frontTitle }}
+                    </div>
+                    <div
+                      class="clickmore mt-1 px-1 py-1 md:px-2 md:py-2 bg-orange-300 border border-orange-200 transition text-xs sm:text-sm text-lime-900 font-bold text-center rounded hover:bg-orange-400 hover:text-white hover:rounded-md">
+                      Kattints a részletekért!
+                    </div>
+                  </div>
                 </div>
-                <div class="text-5xl mb-1">{{ icon }}</div>
-                <div class="font-bold text-sm lg:text-lg text-center mb-1 uppercase lg:tracking-wider">
-                  {{ frontTitle }}
-                </div>
-                <div
-                  class="mt-1 px-2 py-1 bg-orange-300 border border-orange-200 transition text-sm text-lime-900 font-bold text-center rounded hover:bg-orange-400 hover:text-white hover:rounded-md">
-                  Kattints a részletekért!
-                </div>
-              </div>
-            </div>
-            <!-- hátoldal -->
-            <div class="kupon-face kupon-back">
-              <div class="flex flex-col items-center gap-2 px-3 py-4">
-                <div class="text-orange-600 font-base text-lg text-center mb-2">
-                  {{ backText }}
-                </div>
-                <div class="mt-2 text-gray-800 text-center">
-                  <p class="pb-2 font-extrabold">🎉Extra kupon:</p>
-                  <span class="bg-slate-300 px-2 py-1 rounded-md"> ASD123456 </span>
+                <!-- Back -->
+                <div class="kupon-face kupon-back">
+                  <div class="flex flex-col items-center gap-2 px-3 py-4">
+                    <div class="text-orange-500 font-bold text-sm sm:text-lg mb-2 lg:text-center lg:px-4">
+                      {{ backText }}
+                    </div>
+                    <div class="mt-2 text-xs sm:text-base text-gray-800/90 font-medium text-center">
+                      🎉Kódod használható!
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Csak MOBILON jelenik meg >> Gomb a kártya alatt! -->
+          <div class="flex md:hidden w-fit sm:mt-6 justify-center md:w-full">
+            <button @click="toggleState"
+              class="moredetails px-6 py-2 font-semibold tracking-wide bg-orange-500 text-white rounded-md hover:bg-orange-600
+              w-full">
+              Bővebben▼
+            </button>
+          </div>
         </div>
-      </div>
+        
+        <div class="p-4 flex flex-col md:col-span-4 lg:col-span-3 w-full gap-2 mb-4">
+          <p class="text-2xl font-bold text-orange-400 mb-4 border-b-4 rounded-xl border-orange-50/75 pb-2 md:pb-3 lg:pb-2 lg:px-2 w-fit"
+            style="font-family: Nunito;">
+            {{ title_CTA }}
+          </p>
+          <div class="flex flex-col">
+            <ul class="list-disc text-slate-300 pl-6 space-y-2 text-lg w-full md:mb-4">
+              <li v-for="(item, index) in listItems" :key="index">
+                {{ item }}
+              </li>
+            </ul>
+          </div>
 
-      <!-- Jobboldali felsorolásos rész -->
-      <div class="flex-1 w-full h-full mx-auto">
-        <p class="text-2xl font-bold text-orange-400 mb-4 border-b-4 rounded-xl border-orange-50/75 pb-1 max-w-fit"
-          style="font-family: Nunito;">
-          {{ title_CTA }}
-        </p>
-        <ul class="list-disc text-slate-300 pl-4 space-y-2 text-lg">
-          <!-- Ide :item -ként majd megadjuk, mi fog menni a listába -->
-          <li v-for="(item, index) in listItems" :key="index">
-            {{ item }}
-          </li>
-        </ul>
-        <button @click="toggleState"
-          class="mt-8 px-4 py-2 font-semibold tracking-wide bg-orange-500 text-white rounded-md hover:bg-orange-600">
-          Bővebben ▼
-        </button>
+          <!-- Csak DESKTOP-on (md-től) -->
+          <div class="hidden md:flex justify-center">
+            <button @click="toggleState"
+              class="px-6 py-2 font-semibold tracking-wide bg-orange-500 text-white rounded-md hover:bg-orange-600 w-full md:w-auto">
+              Bővebben▼
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. térköz -->
+        <div class="hidden lg:block"></div>
+
       </div>
     </div>
 
     <transition name="expand" class="mb-12">
       <div v-show="isExpanded"
-        class="flex-2 flex-col place-items-start overflow-hidden max-w-[1500px] mt-6 bg-slate-700/70 p-8 rounded-md w-3/5">
+        class="flex flex-col place-items-start overflow-hidden w-11/12 max-w-[screen] mt-6 bg-slate-700/70 p-8 rounded-xl shadow-sm shadow-orange-300 md:w-3/5">
         <h3
-          class="text-xl mb-4 text-amber-600 bg-white p-2 rounded-xl underline underline-offset-4 tracking-wide uppercase font-bold">
+          class="text-lg md:text-xl mb-4 text-amber-600 bg-white p-2 rounded-xl underline underline-offset-4 tracking-wide uppercase font-bold">
           Rövid, és <b>hasznos</b> részletek:
         </h3>
         <p class="text-slate-200 leading-6">
@@ -132,13 +153,39 @@ const toggleState = () => {
 
 .kupon-flip-container {
   position: relative;
-  width: 100%;
-  height: 100%;
   border-radius: 1.2rem;
   border: 4px solid #fb923c;
   background: #fef3c7;
   transform-style: preserve-3d;
   transition: transform 0.5s cubic-bezier(.46, .96, .72, 1.14);
+  margin: auto;
+
+  @media (max-width: 550px) {
+    width: 85%;
+    height: 85%;
+  }
+
+  @media (min-width: 551px) and (max-width: 767px) {
+    width: 95%;
+    height: 95%;
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.moredetails {
+  @media (min-width:550px) and (max-width: 640px) {
+    margin-top: 12px;
+  }
+}
+
+.clickmore {
+  @media (min-width:640px) and (max-width: 764px) {
+    min-width: 100%;
+  }
 }
 
 .kupon-flip-container.flipped {
@@ -148,8 +195,6 @@ const toggleState = () => {
 .kupon-face {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   border-radius: 1.1rem;
   box-shadow: 0 8px 28px rgba(251, 146, 60, 0.04);
   display: flex;
@@ -164,7 +209,6 @@ const toggleState = () => {
   transition: all 1s ease;
 }
 
-/* Expand Transition */
 .expand-enter-active,
 .expand-leave-active {
   transition: all 1s ease;

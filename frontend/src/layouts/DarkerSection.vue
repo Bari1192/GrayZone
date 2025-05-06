@@ -46,7 +46,7 @@ const toggleState = () => {
 
     <div class="w-full max-w-[screen] mx-auto py-14 px-4">
 
-      <div class="grid grid-cols-1 md:grid-cols-7 lg:grid-cols-7 lg:gap-8 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-7 lg:gap-8 items-center">
         <!-- 1. Üres bal oldali térköz -->
         <div class="block"></div>
 
@@ -73,7 +73,7 @@ const toggleState = () => {
         </div>
         <!-- 4. Kártya -->
         <div class="flex flex-col items-center col-span-2 w-full h-full">
-          <div class="flex justify-center items-center w-full h-full md:ml-4" @click="toggleState">
+          <div class="flex justify-center items-center w-full h-full md:ml-8" @click="toggleState">
             <div tabindex="0" role="button" :aria-pressed="flipped"
               class="kupon-perspective w-[180px] h-[260px] md:w-[220px] md:h-[300px] mx-auto cursor-pointer outline-none"
               :style="{ transform: flipped ? 'rotateY(0deg) rotateZ(6deg) scale(1.04)' : 'rotateY(-12deg) rotateZ(-6deg) scale(1.03)', transition: 'transform 0.5s cubic-bezier(.46,.96,.72,1.14)' }">
