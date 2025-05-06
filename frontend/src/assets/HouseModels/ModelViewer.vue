@@ -18,11 +18,11 @@ let renderer, scene, camera, controls, model, animationId, startTime = null;
 
 function initThree() {
     // Győződj meg róla, hogy a container már rendelkezésre áll, és annak mérete meghatározott
-    const containerWidth = container.value ? container.value.clientWidth : 320;
-    const containerHeight = container.value ? container.value.clientHeight : 400;
+    const containerWidth = container.value ? container.value.clientWidth : 120;
+    const containerHeight = container.value ? container.value.clientHeight : 100;
 
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(30, containerWidth / containerHeight, 0.1, 120);
+    camera = new THREE.PerspectiveCamera(30, containerWidth / containerHeight, 0.1, 100);
     if (props.src.endsWith('Panelhaz.glb')) {
         camera.position.set(0, 2, 4);
     } else if (props.src.endsWith('csaladihaz.glb')) {
@@ -87,7 +87,7 @@ function animate(ts) {
     if (model) {
         if (!startTime) startTime = ts;
         const elapsed = (ts - startTime) / 1000;
-        model.rotation.y = 5.5/ 100 * elapsed;
+        model.rotation.y = 5.5 / 100 * elapsed;
     }
     controls.update();
     renderer.render(scene, camera);
@@ -121,21 +121,21 @@ onBeforeUnmount(() => {
 .model-container {
     display: flex;
     justify-content: center;
-    /* Középre igazítás */
     align-items: center;
-    /* Függőleges középre igazítás */
     overflow: hidden;
-    /* Kilógó elemek elrejtése */
-    max-width: 300px;
-    /* Szélesség igazítása a szülőhöz */
-    max-height: 400px;
-    /* Fix magasság mobilnézeten */
+}
+
+@media (min-width:1px) and (max-width: 640px) {
+    .model-container {
+        width: 100px;
+        height: 200px;
+    }
 }
 
 @media (min-width: 640px) {
     .model-container {
-        height: 350px;
-        width: 350px;
+        height: 250px;
+        width: 300px;
 
     }
 }
@@ -143,7 +143,6 @@ onBeforeUnmount(() => {
 @media (min-width: 768px) {
     .model-container {
         height: 400px;
-        /* Magasabb fix magasság nagyobb nézeteken */
     }
 }
 

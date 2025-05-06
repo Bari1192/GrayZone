@@ -74,7 +74,7 @@ import { RouterLink } from 'vue-router';
         :frontTitle="'Új felhasználóknak'" :TitleDiscountPercent="'90%-os kedvezmény'"
         :backText="'Ezek a kedvezmények csak új felhasználók számára érhetők el, ezért érdemes rögtön kihasználni!'"
         :title_CTA="'Új felhasználóknak szóló regisztrációs kedvezmények'">
-        <div class="mx-auto space-y-2 text-lg">
+        <div class="mx-auto lg:space-y-2 text-lg">
             <p>Ha először vásárolsz a Temun, 30%-tól 90%-ig kaphatsz kedvezményt az első rendelésedre, amely általában
                 ~39 dollár
                 értékű szokott lenni.</p>
@@ -92,7 +92,7 @@ import { RouterLink } from 'vue-router';
         'Extra szállítási kupon esetén a min. összeg alatt is elérhető.']" :frontTitle="'Mindenkinek!'"
         :TitleDiscountPercent="'Ingyenes szállítás'" :backText="'Új és Meglévő felhasználók számára egyaránt!'"
         :title_CTA="'Ingyenes szállítás – Kinek, mikor és milyen összeghatártól?'" :icon="'📦'">
-        <div class="mx-auto space-y-2 text-lg">
+        <div class="mx-auto lg:space-y-2 text-lg">
             <p>A Temu rendszeresen kínál időszakos promóciókat, amelyek általában a főoldalon kerülnek kiemelésre.</p>
             <p> Ugyanakkor fontos megjegyezni, hogy a házhoz-szállítási költség általában 0 Ft, amennyiben a minimális
                 vásárlási összeget eléred. </p>
@@ -106,7 +106,7 @@ import { RouterLink } from 'vue-router';
         'Mutatjuk is, hogyan lehetséges mindez!'
     ]" :title_CTA="'Rendszeresen elérhető promóciók és kuponok'" :TitleDiscountPercent="'Promóciós Kuponok'"
         :frontTitle="'Mindenkinek'" :backText="'Új és Meglévő felhasználók számára egyaránt!'" :icon="'📢'">
-        <div class="mx-auto space-y-2 text-lg">
+        <div class="mx-auto lg:space-y-2 text-lg">
             Folyamatosan frissítjük oldalunkat, hogy a Temu ajánlataival mindig naprakész lehess, így elérd a legjobb
             kuponokat és akciókat. Ezek a
             kedvezmények gyorsan változnak, ezért érdemes rendszeresen ellátogatnod a Temu Főoldalára, ahol megtalálod
@@ -127,7 +127,7 @@ import { RouterLink } from 'vue-router';
     ]" :frontTitle="'Idő vagy a mennyiség?'" :TitleDiscountPercent="'Szezonálisan, Limitált Ideig'"
         :backText="'Black-Friday, Tavaszi akciók, vagy rendszeres vásárlóknak extra kedvezmények!'"
         :title_CTA="'Időszakos, Mennyiségi és Szezonális kedvezmények'" :icon="'⏰'">
-        <div class="mx-auto space-y-2 text-lg">
+        <div class="mx-auto lg:space-y-2 text-lg">
             <p> Black Friday, Tavaszi Akció, Rush-Hour gyors vásárlást ösztönző kuponok?</p>
             <p> Ünnepi időszakokban, szezonális kiárusítások alkalmával és nagyobb mennyiségű vásárlás esetén
                 fantasztikus akciókkal találkozhatsz. </p>
@@ -151,7 +151,7 @@ import { RouterLink } from 'vue-router';
         'Vásárlás után szerezhető kuponok, kreditek akciója.',
     ]" :title_CTA="'Rendszeresen elérhető promóciók és kuponok'" :TitleDiscountPercent="'Promóciós Kuponok'"
         :frontTitle="'Mindenkinek!'" :backText="'Új és Meglévő felhasználók számára egyaránt!'" :icon="'🛒'">
-        <div class="mx-auto space-y-2 text-lg">
+        <div class="mx-auto lg:space-y-2 text-lg">
             <p>Az olyan akciók, mint a "villámeladások" <i>(Flash Sales)</i>, csak rövid ideig érhetők el, ezért
                 azonnali
                 döntésre és gyors cselekvésre ösztönöz az alkalmazás. </p>
@@ -195,7 +195,7 @@ import { RouterLink } from 'vue-router';
     ]" :frontTitle="'Ne kérd vissza egyből!'" :TitleDiscountPercent="'Ügyfélszolgálattól szerezhető kuponok'"
         :backText="'Black-Friday, Tavaszi akciók, vagy rendszeres vásárlóknak extra kedvezmények!'"
         :title_CTA="'Temu ügyfélszolgálata - Kuponozásra?'" :icon="'⏰'">
-        <div class="mx-auto space-y-2 text-lg">
+        <div class="mx-auto sm:space-y-2 text-lg">
             <p> Alapvetően ha bármilyen kérdésed vagy problémája adódik valakinek egy webshopon, az
                 <a class="italic underline underline-offset-2 font-semibold"
                     href="https://www.temu.com/hu/support-center.html?refer_page_name=home&refer_page_id=10005_1746213123690_xkb4yis38u&refer_page_sn=10005&_x_sessn_id=b625bp4hxz">ügyfélszolgálat</a>i
