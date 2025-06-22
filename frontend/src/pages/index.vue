@@ -58,6 +58,7 @@ import BaseFooter from '@components/layout/BaseFooter.vue';
   background-repeat: no-repeat;
   /* height: 2000px; */
 }
+
 .text-container {
   perspective: 1000px;
 }
@@ -66,9 +67,9 @@ import BaseFooter from '@components/layout/BaseFooter.vue';
   font-family: 'Russo One', sans-serif;
   font-size: 4.5rem;
   color: white;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   padding: 1rem 2rem;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   backdrop-filter: blur(5px);
   transform: rotateX(5deg);
@@ -86,9 +87,9 @@ import BaseFooter from '@components/layout/BaseFooter.vue';
   font-weight: 700;
   background: linear-gradient(45deg, #f63636, #f47676, #f63636);
   color: gainsboro;
-border-radius: 2rem;
- padding: 0 2rem; 
-  text-shadow: 2px 2px 4px rgba(255,79,79,0.3);
+  border-radius: 2rem;
+  padding: 0 2rem;
+  text-shadow: 2px 2px 4px rgba(255, 79, 79, 0.3);
 }
 
 .glow-line {
@@ -104,24 +105,24 @@ border-radius: 2rem;
 .separator {
   width: 20%;
   height: 4px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   border-radius: 2px;
 }
 
 .cta-button {
   padding: .7rem 1.5rem;
   font-size: 1.2rem;
-  background: linear-gradient(180deg, #720b0b, #d05757,#720b0b);
+  background: linear-gradient(180deg, #720b0b, #d05757, #720b0b);
   border: 2px solid #e26d24aa;
   color: white;
   border-radius: 30px;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
-  box-shadow: 0 4px 15px rgba(255,79,79,0.3);
+  box-shadow: 0 4px 15px rgba(255, 79, 79, 0.3);
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,79,79,0.4);
+  box-shadow: 0 6px 20px rgba(255, 79, 79, 0.4);
 }
 
 .animated-arrow {
@@ -136,7 +137,7 @@ border-radius: 2rem;
 
 .animated-arrow-right {
   position: absolute;
-  left: 107%; 
+  left: 107%;
   top: 50%;
   transform: translateY(-50%);
   color: white;
@@ -145,25 +146,54 @@ border-radius: 2rem;
 }
 
 @keyframes glow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes bounceArrowLeft {
-  0%, 100% { transform: translateX(0) translateY(-50%); }
-  50% { transform: translateX(10px) translateY(-50%); }
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(-50%);
+  }
+
+  50% {
+    transform: translateX(10px) translateY(-50%);
+  }
 }
 
 @keyframes bounceArrowRight {
-  0%, 100% { transform: translateX(0) translateY(-50%); }
-  50% { transform: translateX(-10px) translateY(-50%); }  
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(-50%);
+  }
+
+  50% {
+    transform: translateX(-10px) translateY(-50%);
+  }
 }
 
 
 /* Reszponzív beállítások */
 @media (max-width: 768px) {
-  .Outsmart { font-size: 3rem; }
-  .notyourbudget { font-size: 3.5rem; }
-  .separator { width: 40%; }
+  .Outsmart {
+    font-size: 3rem;
+  }
+
+  .notyourbudget {
+    font-size: 3.5rem;
+  }
+
+  .separator {
+    width: 40%;
+  }
 }
 </style>

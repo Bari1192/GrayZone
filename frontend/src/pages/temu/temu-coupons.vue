@@ -3,65 +3,133 @@ import BaseHeader from '@components/layout/BaseHeader.vue';
 import BaseFooter from '@components/layout/BaseFooter.vue';
 import BrighterSection from '@layouts/BrighterSection.vue';
 import DarkerSection from '@layouts/DarkerSection.vue';
-import BookMarkSection from './sections/temu-coupons/bookmark.vue';
 import ModelViewer from '@assets/HouseModels/ModelViewer.vue'
 import SupportViewer from '@pages/temu/sections/temu-coupons/SupportViewer.vue';
 
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
 
+const summaryItems = ref([
+    {
+        id: 1,
+        title: 'Új felhasználóknak',
+        desc: "30-90%-os kedvezmények az első vásárlásra? Ajándék termék a vásárlásod mellé?",
+        icon: 'person_add',
+        link: '#user-discounts'
+    },
+    {
+        id: 2,
+        title: 'Ingyenes Szállítás',
+        desc: "Extra ingyenes szállítási kupon? Új és már regisztrált felhasználóknak is, egyaránt?",
+        icon: "delivery_truck_speed",
+        link: '#free-shipping'
+    },
+    {
+        id: 3,
+        title: 'Promóciós Kuponok',
+        desc: 'Érdekel, hogy milyen kuponokat rejt a Temu? A folyamatosan frissülő kuponokat gyűjtjük össze, hogy neked már ne kelljen. ',
+        icon: "shoppingmode",
+        link: '#promo-coupons'
+    },
+    {
+        id: 4,
+        title: 'Villám Akciók',
+        desc: "Limitált idejű, korlátozott ajánlatok? Nem ér meglepetésként ha megmutatjuk, mire számíthatsz!",
+        icon: "electric_bolt",
+        link: '#flash-sales'
+    },
+    {
+        id: 5,
+        title: 'Szezonális Promóciók',
+        desc: "Black Friday, karácsony, vagy nyári akciók? Mutatjuk, mennyire csábít a felhozatal, már most!",
+        icon: "beach_access",
+        link: '#seasonal-deals'
+    },
+    {
+        id: 6,
+        title: 'Ügyfélszolgálat-Trükkök',
+        desc: 'Már a Temu is AI-támogatással dolgozik, de tudtad, hogy akár kuponokat is kiállíthatsz magadnak vele? Mutatjuk!',
+        icon: "headphones",
+        link: '#support-hacks'
+    }
+])
+const slider = ref(null)
+const scroll = dir => {
+    slider.value.scrollBy({ left: dir * slider.value.clientWidth * 0.8, behavior: 'smooth' })
+}
 </script>
 
 <template>
     <BaseHeader />
     <SupportViewer src="/support.glb" />
-    <div
-        class="w-full py-14 px-2 bg-gradient-to-r from-orange-400 via-orange-500/90 to-orange-500/90 rounded-b-2xl shadow-2xl shadow-orange-700/40">
-        <div class="max-w-7xl mx-auto flex flex-col items-center text-white">
-            <div class="text-4xl md:text-5xl font-extrabold drop-shadow-sm text-center tracking-tight mb-6">
-                <p style="font-family: 'Nunito','Arial';">
-                    Temu Kuponok &amp; Visszatérítések
-                </p>
-                <p class="lg:my-4">
-                    Spórolj Professzionálisan!
-                </p>
-            </div>
-            <h2 class="text-xl md:text-2xl font-semibold text-orange-100 mb-6 text-center"
-            style="font-family: 'Nunito','Arial';">
-                Az egyetlen hely, ahol minden Temu kedvezmény és kupon titkát, lépésről lépésre, közérthetően
-                megtalálod.
-            </h2>
-            <p class="text-lg md:text-xl text-white/90 font-medium mb-8 text-center"
-                style="font-family: 'Nunito','Arial';">
-                Válogass a legjobb kuponok közül, fedezd fel a megtakarítás új lehetőségeit – legyen a vásárlásod valódi
-                öröm!
+
+    <div class="welcome-text-first mt-10 w-full mx-auto flex flex-col items-center relative"
+        style="font-family: 'Nunito','Arial';">
+
+        <div class="text-container relative Outsmart text-white">
+            <p>
+                Temu Kuponok &amp; Visszatérítések
             </p>
-            <a href="#benefits" class="group">
-                <button
-                    class="bg-rose-500 font-bold py-4 px-8 rounded-full text-lg shadow-lg flex items-center gap-3 
-                    transition-all duration-300 ease-in-out
-                    hover:bg-gradient-to-r hover:from-yellow-500 hover:to-lime-600 hover:border-lime-700
-                    hover:shadow-sm hover:shadow-rose-300"
-                    aria-label="Görgess a kedvezményes részletekhez">
-                    Fedezd fel a lehetőségeket
-                    <span class="inline-block transition-all transform duration-300 ease-in-out group-hover:translate-x-1 ">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </span>
-                </button>
-            </a>
-            <div class="mt-10 w-full flex flex-col items-center">
-                <p class="text-white mb-3">
-                    <i class="fa-solid fa-circle-info bg-rose-600 rounded-full mr-2"></i>
-                    Tudatos vásárlóként mindenki spórolhat, csak tudd, hol keresd a titkos kuponokat!
-                </p>
-                <router-link to="/temu/temu-help/coupon-help">
-                    <span
-                        class="text-yellow-400 underline underline-offset-4 hover:italic transition-all cursor-pointer">
-                        Problémás a kuponod? Itt kapsz megoldást!
-                    </span>
-                </router-link>
-            </div>
+            <div class="glow-line"></div>
+        </div>
+        <p class="text-slate-200 mt-4 text-lg font-semibold italic">
+            Spórolj Professzionálisan!
+        </p>
+    </div>
+
+    <div class="flex w-full md:min-h-[70svh] m-auto align-middle">
+        <div class="w-10/12 m-auto bg-gradient-to-r from-transparent via-slate-800 to-transparent slate-800">
+            <section class="mx-auto w-full">
+                <h2 class="text-3xl font-extrabold text-white mb-12 pt-4 tracking-wide text-center">
+                    Felkapott Témakörök
+                </h2>
+                <div class="relative px-2">
+
+                    <button @click="scroll(-1)" class="absolute -left-10 top-1/2 -translate-y-1/2">
+                        <span
+                            class="material-symbols-outlined p-1.5 bg-orange-400 text-slate-900 rounded-full shadow hover:bg-orange-500
+                        transition-colors duration-150 ease-linear hover:text-slate-100 hover:shadow-inner hover:shadow-orange-400"
+                            style="font-size: 40px; font-weight:900;">
+                            keyboard_double_arrow_left
+                        </span>
+                    </button>
+                    <div ref="slider" class="mx-8 pb-6 flex overflow-x-hidden space-x-6 px-4">
+                        <RouterLink v-for="item in summaryItems" :key="item.id" :to="item.link"
+                            class="flex-none w-64 sm:w-72 md:w-80 h-60 bg-gray-50 rounded-lg border border-gray-200 snap-start hover:bg-gray-100 transition p-4 flex flex-col">
+                            <!-- 1. sor: ikon + cím -->
+                            <div class="flex items-center space-x-4 px-4 py-2 rounded-md bg-orange-400/20">
+                                <span class="material-symbols-outlined material-symbols--fixed text-orange-500">
+                                    {{ item.icon }}
+                                </span>
+                                <h3 class="text-lg font-semibold text-slate-900">{{ item.title }}</h3>
+                            </div>
+                            <!-- 2. sor: leírás -->
+                            <p class="text-gray-600 text-md mt-2 p-2 font-semibold flex-1">
+                                {{ item.desc }}
+                            </p>
+                            <!-- 3. sor: CTA gomb -->
+                            <div class="flex justify-end w-full">
+                                <button
+                                    class="mt-4 bg-orange-500 text-slate-100 px-2 py-1 rounded-lg text-lg font-medium hover:bg-orange-600 transition">
+                                    Megnézem
+                                </button>
+                            </div>
+                        </RouterLink>
+                    </div>
+                    <button @click="scroll(1)" class="absolute -right-10 top-1/2 -translate-y-1/2">
+                        <span
+                            class="material-symbols-outlined p-1.5 bg-orange-400 text-slate-900 rounded-full shadow hover:bg-orange-500
+                        transition-colors duration-150 ease-linear hover:text-slate-100 hover:shadow-inner hover:shadow-orange-400"
+                            style="font-size: 40px; font-weight:900;">
+                            keyboard_double_arrow_right
+                        </span>
+                    </button>
+                </div>
+            </section>
         </div>
     </div>
+
+
 
     <BrighterSection :listItems="['Új Felhasználói Kedvezmények', 'Minimum 30-90%-os kedvezmények az első vásárlásra.', 'Választott termék ajándék a vásárlásod mellé.',
         'Ingyenes szállítás első rendeléshez', 'Alkalmazás letöltési bónusz, akár további $20 kedvezményér',]"
@@ -462,43 +530,43 @@ import { RouterLink } from 'vue-router';
     color: #fb923c;
 }
 
-.cta-button {
-    padding: .7rem 1.5rem;
-    font-size: 1.2rem;
-    background: linear-gradient(180deg, #720b0b, #d05757, #720b0b);
-    border: 2px solid #e26d24aa;
-    color: white;
-    border-radius: 30px;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    box-shadow: 0 4px 15px rgba(255, 79, 79, 0.3);
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 79, 79, 0.4);
-}
-
-.animated-arrow {
+.glow-line {
     position: absolute;
-    right: 107%;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 1.9rem;
-    animation: bounceArrowLeft 1.5s infinite;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    animation: glow 2s infinite;
 }
 
-.animated-arrow-right {
-    position: absolute;
-    left: 107%;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 1.9rem;
-    animation: bounceArrowRight 1.5s infinite;
+.text-container {
+    perspective: 1000px;
 }
 
-.coupon-icon {
-    margin-left: 8px;
+.Outsmart {
+    font-size: 4.5rem;
+    color: orange;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transform: rotateX(5deg);
+    transition: transform 0.3s ease;
+}
+
+.material-symbols--fixed {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 40px;
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
