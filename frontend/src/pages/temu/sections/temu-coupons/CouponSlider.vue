@@ -1,5 +1,4 @@
 <template>
-    <!-- LG-nél két oszlop, bal üres, jobb a content -->
     <div class="w-full h-full">
         <div class="grid w-full h-full ">
             <div

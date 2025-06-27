@@ -3,29 +3,26 @@
     <div class="min-h-screen bg-gray-900 text-white  lg:mb-20">
         <div class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-pink-900 to-orange-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <div class="text-center" data-animate="hero" ref="heroSection">
-                    <h1
-                        class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
-                        Temu Tricks
-                    </h1>
+                <div class="text-center flex flex-col h-full gap-8 items-center justify-between" data-animate="hero"
+                    ref="heroSection">
+                    <div class="text-white/85 text-5xl font-extrabold py-4 px-8 rounded-md ">
+                        Fedezd fel a <span class="text-amber-500 px-1 text-5xl" style="font-family: 'DynaPuff', system-ui;">Temu</span> nyújtotta összes kedvezményt!
+                    </div>
                     <div class="SporoljOkosan">
                         <p class=" text-2xl md:text-3xl  text-gray-200">
                             Spórolj okosan akár
-                            <span class="font-semibold lg:mx-2 text-purple-800 text-nowrap">{{ formattedSavings }} Forintot</span>
+                            <span class="font-semibold lg:mx-2 text-purple-800 text-nowrap">{{ formattedSavings }}
+                                Forintot</span>
                             vásárlásonként!
                         </p>
                     </div>
-                    <button
-                        class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full 
-              transition-all duration-300 transform hover:scale-105 flex items-center mx-auto gap-2 tracking-wider italic hover:cursor-pointer">
-                        Fedezd fel a kedvezményeket!
-                    </button>
+
                 </div>
             </div>
 
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div class="absolute w-64 h-64 rounded-full bg-pink-600/20 blur-3xl -top-10 -left-10"></div>
-                <div class="absolute w-64 h-64 rounded-full bg-purple-600/20 blur-3xl top-40 right-10"></div>
+                <div class="absolute w-64 h-64 rounded-2xl bg-pink-600/20 blur-3xl -top-10 -left-10"></div>
+                <div class="absolute w-64 h-64 rounded-2xl bg-purple-600/20 blur-3xl top-40 right-10"></div>
             </div>
         </div>
 
@@ -42,7 +39,8 @@
                         <i class="fa-solid fa-fire text-orange-700"></i>
                         Legfrissebb
                         <i class="fa-solid fa-fire text-orange-700"></i>
-                    </span> spórolási tippek </h2>
+                    </span> spórolási tippek
+                </h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <QuickTips />
                 </div>
@@ -57,7 +55,7 @@
                     <h2 class="text-4xl font-bold mb-6">Eljött a Te időd!</h2>
                     <p class="text-xl text-gray-300 mb-8">Kövesd tippjeinket és hozd ki a vásárlásodból a legtöbbet!</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-full 
+                        <button class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-2xl 
               transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
                             Kedvezmények felfedezése
                             <i class="fas fa-arrow-right"></i>
@@ -67,7 +65,7 @@
             </div>
         </router-link>
     </div>
-    <BaseFooter/>
+    <BaseFooter />
 </template>
 
 <script setup>
@@ -122,6 +120,7 @@ onMounted(() => {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Permanent+Marker&family=Rasa:ital,wght@0,300..700;1,300..700&family=Tourney:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=DynaPuff:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&display=swap');
 
 .fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;

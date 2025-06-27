@@ -21,7 +21,9 @@ export default defineConfig({
       '@locales': fileURLToPath(new URL('./src/locales', import.meta.url)),
       '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
       '@stores': fileURLToPath(new URL('./src/stores', import.meta.url)),
-      '@utils': fileURLToPath(new URL('./src/utils', import.meta.url))
+      '@utils': fileURLToPath(new URL('./src/utils', import.meta.url)),
+      '@sections': fileURLToPath(new URL('./src/pages/temu/sections', import.meta.url)),      
+      '@img': fileURLToPath(new URL('./src/assets/img', import.meta.url))   
     }
   }
 })

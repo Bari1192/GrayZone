@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Classes\TemuTricksKeywords;
-use App\Classes\CarsharingTipsKeywords;
+use App\Classes\makeaplanKeywords;
 use App\Classes\ErrorFaresKeywords;
 use Illuminate\Support\Str;
 
@@ -32,7 +32,7 @@ class ChatResponderService
         foreach (TemuTricksKeywords::keywords() as $word) {
             if (Str::contains($message, Str::lower($word, 'UTF-8'))) $matches['Temu Tricks']++;
         }
-        foreach (CarsharingTipsKeywords::keywords() as $word) {
+        foreach (makeaplanKeywords::keywords() as $word) {
             if (Str::contains($message, Str::lower($word, 'UTF-8'))) $matches['Carsharing Tips']++;
         }
         foreach (ErrorFaresKeywords::keywords() as $word) {

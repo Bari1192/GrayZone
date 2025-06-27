@@ -8,51 +8,51 @@ import SupportViewer from '@pages/temu/sections/temu-coupons/SupportViewer.vue';
 
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
-
 const summaryItems = ref([
     {
         id: 1,
         title: 'Új felhasználóknak',
         desc: "30-90%-os kedvezmények az első vásárlásra? Ajándék termék a vásárlásod mellé?",
         icon: 'person_add',
-        link: '#user-discounts'
+        linktopage: '/temu/sections/new-users'
     },
     {
         id: 2,
         title: 'Ingyenes Szállítás',
         desc: "Extra ingyenes szállítási kupon? Új és már regisztrált felhasználóknak is, egyaránt?",
         icon: "delivery_truck_speed",
-        link: '#free-shipping'
+        linktopage: '/temu/sections/delivery-coupons'
     },
     {
         id: 3,
         title: 'Promóciós Kuponok',
         desc: 'Érdekel, hogy milyen kuponokat rejt a Temu? A folyamatosan frissülő kuponokat gyűjtjük össze, hogy neked már ne kelljen. ',
         icon: "shoppingmode",
-        link: '#promo-coupons'
+        linktopage: '/temu/sections/promo-coupons'
     },
     {
         id: 4,
         title: 'Villám Akciók',
         desc: "Limitált idejű, korlátozott ajánlatok? Nem ér meglepetésként ha megmutatjuk, mire számíthatsz!",
         icon: "electric_bolt",
-        link: '#flash-sales'
+        linktopage: '/temu/sections/flash-deal-coupons'
     },
     {
         id: 5,
         title: 'Szezonális Promóciók',
         desc: "Black Friday, karácsony, vagy nyári akciók? Mutatjuk, mennyire csábít a felhozatal, már most!",
         icon: "beach_access",
-        link: '#seasonal-deals'
+        linktopage: '/temu/sections/seasonal-coupons'
     },
     {
         id: 6,
         title: 'Ügyfélszolgálat-Trükkök',
         desc: 'Már a Temu is AI-támogatással dolgozik, de tudtad, hogy akár kuponokat is kiállíthatsz magadnak vele? Mutatjuk!',
         icon: "headphones",
-        link: '#support-hacks'
+        linktopage: '/temu/sections/support-coupons'
     }
 ])
+
 const slider = ref(null)
 const scroll = dir => {
     slider.value.scrollBy({ left: dir * slider.value.clientWidth * 0.8, behavior: 'smooth' })
@@ -135,7 +135,7 @@ const scroll = dir => {
         'Ingyenes szállítás első rendeléshez', 'Alkalmazás letöltési bónusz, akár további $20 kedvezményér',]"
         :frontTitle="'Új felhasználóknak'" :TitleDiscountPercent="'90%-os kedvezmény'"
         :backText="'Ezek a kedvezmények csak új felhasználók számára érhetők el, ezért érdemes rögtön kihasználni!'"
-        :title_CTA="'Új felhasználóknak szóló regisztrációs kedvezmények'">
+        :title_CTA="'Új felhasználóknak szóló regisztrációs kedvezmények'" :linktopage="'NewUsers'">
         <div class="mx-auto lg:space-y-2 text-lg">
             <p class="flex items-center">
                 <span class="text-lime-500 mr-2 lg:mr-4">
@@ -183,7 +183,8 @@ const scroll = dir => {
         'Minimum vásárlási összeg elérése szükséges.',
         'Extra szállítási kupon esetén a min. összeg alatt is elérhető.']" :frontTitle="'Mindenkinek!'"
         :TitleDiscountPercent="'Ingyenes szállítás'" :backText="'Új és Meglévő felhasználók számára egyaránt!'"
-        :title_CTA="'Ingyenes szállítás – Kinek, mikor és milyen összeghatártól?'" :icon="'📦'">
+        :title_CTA="'Ingyenes szállítás – Kinek, mikor és milyen összeghatártól?'" :icon="'📦'"
+        :linktopage="'DeliveryCoupons'">
         <div class="mx-auto lg:space-y-2 text-lg">
             <p class="flex items-center">
                 <span class="text-lime-500 mr-2 lg:mr-4">
@@ -221,7 +222,8 @@ const scroll = dir => {
         'Egyszerűen beváltható kuponok a vásárlási folyamatban?',
         'Mutatjuk is, hogyan lehetséges mindez!'
     ]" :title_CTA="'Rendszeresen elérhető promóciók és kuponok'" :TitleDiscountPercent="'Promóciós Kuponok'"
-        :frontTitle="'Mindenkinek'" :backText="'Új és Meglévő felhasználók számára egyaránt!'" :icon="'📢'">
+        :frontTitle="'Mindenkinek'" :backText="'Új és Meglévő felhasználók számára egyaránt!'" :icon="'📢'"
+        :linktopage="'PromoCoupons'">
         <div class="mx-auto lg:space-y-2 text-lg">
             <p class="flex items-center">
                 <span class="text-yellow-400 mr-2 lg:mr-4">
@@ -265,7 +267,7 @@ const scroll = dir => {
         'Korlátozott idejű, mégis állandó promóciók?',
     ]" :frontTitle="'Idő vagy a mennyiség?'" :TitleDiscountPercent="'Szezonálisan, Limitált Ideig'"
         :backText="'Black-Friday, Tavaszi akciók, vagy rendszeres vásárlóknak extra kedvezmények!'"
-        :title_CTA="'Időszakos, Mennyiségi és Szezonális kedvezmények'" :icon="'⏰'">
+        :title_CTA="'Időszakos, Mennyiségi és Szezonális kedvezmények'" :icon="'⏰'" :linktopage="'SeasonalCoupons'">
         <div class="mx-auto lg:space-y-2 text-lg">
             <div class="flex items-center">
                 <span class="text-yellow-400 mr-2 lg:mr-4"><i class="fa-solid fa-fire"></i></span>
@@ -322,7 +324,8 @@ const scroll = dir => {
         'Azonnali kedvezmények a gyors cselekvésért - kosárban lévő termékek akciója.',
         'Vásárlás után szerezhető kuponok, kreditek akciója.',
     ]" :title_CTA="'Rendszeresen elérhető promóciók és kuponok'" :TitleDiscountPercent="'Promóciós Kuponok'"
-        :frontTitle="'Mindenkinek!'" :backText="'Új és Meglévő felhasználók számára egyaránt!'" :icon="'🛒'">
+        :frontTitle="'Mindenkinek!'" :backText="'Új és Meglévő felhasználók számára egyaránt!'" :icon="'🛒'"
+        :linktopage="'PromoCoupons'">
         <div class="mx-auto lg:space-y-2 text-lg">
             <p>Az olyan akciók, mint a "villámeladások" <i>(Flash Sales)</i>, csak rövid ideig érhetők el, ezért
                 azonnali
@@ -366,7 +369,8 @@ const scroll = dir => {
         'Hogyan használd ki, hogy automata / mestersgéses intelligenciával épített ügyfél-támogatás van?',
     ]" :frontTitle="'Ne kérd vissza egyből!'" :TitleDiscountPercent="'Ügyfélszolgálattól szerezhető kuponok'"
         :backText="'Black-Friday, Tavaszi akciók, vagy rendszeres vásárlóknak extra kedvezmények!'"
-        :title_CTA="'Temu ügyfélszolgálata - Kuponozásra?'" :icon="'⏰'">
+        :title_CTA="'Temu ügyfélszolgálata - Kuponozásra?'" :icon="'⏰'"
+                :linktopage="'SupportCoupons'">
         <div class="mx-auto sm:space-y-2 text-lg">
             <div class="mx-auto sm:space-y-2 text-lg">
                 <p>

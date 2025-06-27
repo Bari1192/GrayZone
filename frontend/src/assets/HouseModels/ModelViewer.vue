@@ -1,5 +1,4 @@
 <template>
-    <!-- Fontos: a container-hez hozzá kell rendelni a ref értéket! -->
     <div ref="container" class="model-container flex justify-center items-center mx-auto cursor-pointer"></div>
 </template>
 
@@ -17,7 +16,6 @@ const container = ref(null);
 let renderer, scene, camera, controls, model, animationId, startTime = null;
 
 function initThree() {
-    // Győződj meg róla, hogy a container már rendelkezésre áll, és annak mérete meghatározott
     const containerWidth = 280
     const containerHeight = 350;
 
@@ -38,7 +36,6 @@ function initThree() {
     renderer.setSize(containerWidth, containerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    // Győződj meg róla, hogy van container.value, mielőtt hozzáadod a canvas-t!
     if (container.value) {
         container.value.appendChild(renderer.domElement);
     }

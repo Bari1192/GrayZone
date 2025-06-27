@@ -18,9 +18,8 @@
                         <div class="text-center">
                             <h3 class="text-white font-semibold mb-4">Tippek & Trükkök</h3>
                             <ul class="space-y-2">
-                                <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Temu Tricks</a></li>
-                                <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Carsharing Tips</a></li>
-                                <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Error Fares</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors">Temu
+                                        Tricks</a></li>
                             </ul>
                         </div>
 
@@ -40,12 +39,14 @@
                     <div class="flex max-w-xs mx-auto mb-8 lg:mb-4 ">
                         <input type="email" placeholder="Email címed"
                             class="bg-gray-800 text-gray-300 px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-pink-500 flex-grow w-full">
-                        <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-r-lg transition-colors">
+                        <button
+                            class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-r-lg transition-colors">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                     <p class="text-gray-400 text-sm px-2 text-center lg:text-left">
-                        *Feliratkozással hozzájárulsz az <u class="underline-offset-2 italic">adatkezelési tájékoztatóban</u> foglaltakhoz.
+                        *Feliratkozással hozzájárulsz az <u class="underline-offset-2 italic">adatkezelési
+                            tájékoztatóban</u> foglaltakhoz.
                     </p>
                 </div>
             </div>
